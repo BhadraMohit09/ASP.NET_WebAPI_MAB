@@ -1,7 +1,6 @@
 ## WebAPI_MAB
 ## Context
--> Project Structure:
-
+Project Structure:
 Controllers: Defines API endpoints and maps them to appropriate actions.
 
 Models: Represents the structure of data entities.
