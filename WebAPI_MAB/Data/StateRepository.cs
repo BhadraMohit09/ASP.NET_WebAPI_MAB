@@ -6,23 +6,23 @@ using Microsoft.Data.SqlClient;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI_MAB.Data
-{
-    public class CityRepository
+{ 
+    public class StateRepository
     {
         private readonly string _connectionString;
 
-        public CityRepository(IConfiguration configuration)
+        public StateRepository(IConfiguration configuration)
         {
             _connectionString = configuration.GetConnectionString("ConnectionString");
         }
 
         #region SelectAll
-        public IEnumerable<CityModel> SelectAll()
+        public IEnumerable<StateModel> SelectAll()
         {
-            var cities = new List<CityModel>();
+            var states = new List<StateModel>();
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                SqlCommand cmd = new SqlCommand("PR_LOC_City_SelectAll", conn)
+                SqlCommand cmd = new SqlCommand("PR_State_SelectAll", conn)
                 {
 
                     CommandType = CommandType.StoredProcedure
@@ -31,35 +31,32 @@ namespace WebAPI_MAB.Data
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    cities.Add(new CityModel
+                    states.Add(new StateModel
                     {
-                        CityID = Convert.ToInt32(reader["CityID"]),
                         StateID = Convert.ToInt32(reader["StateID"]),
                         CountryID = Convert.ToInt32(reader["CountryID"]),
-                        CityName = reader["CityName"].ToString(),
-                        CityCode = reader["CityCode"].ToString()
+                        StateName = reader["StateName"].ToString(),
+                        StateCode = reader["StateCode"].ToString(),
                     });
                 }
             }
-            return cities;
+            return states;
         }
         #endregion
 
         #region SelectByID
-        public CityModel SelectByPK(int cityID)
-
+        public StateModel SelectByPK(int stateID)
         {
-            CityModel city = null;
+            StateModel state = null;
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                SqlCommand cmd = new SqlCommand("PR_LOC_City_SelectByPK", conn)
-
+                SqlCommand cmd = new SqlCommand("PR_State_SelectById", conn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
 
-                cmd.Parameters.AddWithValue("@CityID", cityID);
+                cmd.Parameters.AddWithValue("@StateID", stateID);
 
                 conn.Open();
 
@@ -67,32 +64,33 @@ namespace WebAPI_MAB.Data
 
                 if (reader.Read())
                 {
-                    city = new CityModel
+                    state = new StateModel
                     {
-                        CityID = Convert.ToInt32(reader["CityID"]),
                         StateID = Convert.ToInt32(reader["StateID"]),
                         CountryID = Convert.ToInt32(reader["CountryID"]),
-                        CityName = reader["CityName"].ToString(),
-                        CityCode = reader["CityCode"].ToString()
+                        StateName = reader["StateName"].ToString(),
+                        StateCode = reader["StateCode"]?.ToString(),
+                        CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
+                        ModifiedDate = reader["ModifiedDate"] == DBNull.Value ? null : Convert.ToDateTime(reader["ModifiedDate"])
                     };
                 }
             }
-            return city;
+            return state;
         }
         #endregion
 
         #region DeleteData
-        public bool Delete(int cityID)
+        public bool Delete(int stateID)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                SqlCommand cmd = new SqlCommand("PR_LOC_City_Delete", conn)
+                SqlCommand cmd = new SqlCommand("PR_State_Delete", conn)
 
                 {
                     CommandType = CommandType.StoredProcedure
                 };
 
-                cmd.Parameters.AddWithValue("@CityID", cityID);
+                cmd.Parameters.AddWithValue("@StateID", stateID);
 
                 conn.Open();
                 int rowAffected = cmd.ExecuteNonQuery();
@@ -101,20 +99,20 @@ namespace WebAPI_MAB.Data
         }
         #endregion
 
-        #region InsertCity
-        public bool Insert(CityModel city)
+        #region InsertState
+        public bool Insert(StateModel state)
         {
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
-                SqlCommand cmd = new SqlCommand("PR_LOC_City_Insert", con)
+                SqlCommand cmd = new SqlCommand("PR_State_Insert", con)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
 
-                cmd.Parameters.AddWithValue("@StateID", city.StateID);
-                cmd.Parameters.AddWithValue("@CountryID", city.CountryID);
-                cmd.Parameters.AddWithValue("@CityName", city.CityName);
-                cmd.Parameters.AddWithValue("@CityCode", city.CityCode);
+                cmd.Parameters.AddWithValue("@StateID", state.StateID);
+                cmd.Parameters.AddWithValue("@CountryID", state.CountryID);
+                cmd.Parameters.AddWithValue("@CityName", state.StateName);
+                cmd.Parameters.AddWithValue("@StateCode", state.StateCode);
 
                 con.Open();
 
@@ -125,8 +123,8 @@ namespace WebAPI_MAB.Data
         }
         #endregion
 
-        #region UpdateCity
-        public bool Update(CityModel city)
+        #region UpdateState
+        public bool Update(StateModel state)
 
         {
 
@@ -134,22 +132,20 @@ namespace WebAPI_MAB.Data
 
             {
 
-                SqlCommand cmd = new SqlCommand("PR_LOC_City_Update", conn)
+                SqlCommand cmd = new SqlCommand("PR_State_Update", conn)
 
                 {
 
                     CommandType = CommandType.StoredProcedure
                 };
 
-                cmd.Parameters.AddWithValue("@CityID", city.CityID);
+                cmd.Parameters.AddWithValue("@StateID", state.StateID);
 
-                cmd.Parameters.AddWithValue("@StateID", city.StateID);
+                cmd.Parameters.AddWithValue("@CountryID", state.CountryID);
 
-                cmd.Parameters.AddWithValue("@CountryID", city.CountryID); // New parameter
+                cmd.Parameters.AddWithValue("@StateName", state.StateName);
 
-                cmd.Parameters.AddWithValue("@CityName", city.CityName);
-
-                cmd.Parameters.AddWithValue("@CityCode", city.CityCode);
+                cmd.Parameters.AddWithValue("@StateCode", state.StateCode); // New parameter
 
 
                 conn.Open();

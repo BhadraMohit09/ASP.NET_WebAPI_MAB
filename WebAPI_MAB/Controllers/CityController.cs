@@ -11,10 +11,10 @@ namespace WebAPI_MAB.Controllers
     {
         private readonly CityRepository _cityRepository;
 
-        public CityController(CityRepository cityRepository) 
+        public CityController(CityRepository cityRepository)
         {
-            _cityRepository = cityRepository;  
-        }   
+            _cityRepository = cityRepository;
+        }
 
         #region GetAll City
         [HttpGet]
@@ -53,5 +53,44 @@ namespace WebAPI_MAB.Controllers
             return NoContent();
         }
         #endregion
+
+        #region InsertCity
+        [HttpPost]
+        public IActionResult InsertCity([FromBody] CityModel city)
+        {
+            if (city == null)
+            {
+                return BadRequest();
+            }
+
+            bool isInserted = _cityRepository.Insert(city);
+
+            if (isInserted)
+                return Ok(new { Message = "City inserted..." });
+            return StatusCode(500, "An error occureed");
+        }
+        #endregion
+
+
+        #region UpdateCity
+        [HttpPut("{id}")]
+        public IActionResult UpdateCity(int id, [FromBody] CityModel city)
+        {
+            if(city == null || id != city.CityID)
+            {
+                return BadRequest();
+            }
+
+            var isUpdated = _cityRepository.Update(city);
+
+            if (!isUpdated)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
+        }
+        #endregion
+
     }
 }
