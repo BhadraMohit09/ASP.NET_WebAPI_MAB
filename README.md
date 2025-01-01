@@ -2,7 +2,7 @@
 ## Context
 Project Structure:
 
-Controllers: Defines API endpoints and maps them to appropriate actions.
+Controllers:: Defines API endpoints and maps them to appropriate actions.
 
 Models: Represents the structure of data entities.
 
