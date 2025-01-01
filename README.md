@@ -8,4 +8,4 @@ Models:: Represents the structure of data entities.
 
 Data Layer:: Uses Entity Framework for database interaction.
 
-Dependency Injection: Ensures modular and test
+Dependency Injection:: Ensures modular and test
