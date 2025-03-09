@@ -4,17 +4,20 @@
 ![Status](https://img.shields.io/badge/Status-Complete-red?style=for-the-badge)  
 ![Contributions](https://img.shields.io/badge/Contributions-Welcome-purple?style=for-the-badge)  
 
-#### 📌 `Overview`  
-**WebAPI_MAB** is a structured and scalable Web API project that leverages **.NET Core** and **Entity Framework** for seamless backend operations. It follows industry best practices such as **Dependency Injection**, **Layered Architecture**, and **RESTful principles** to ensure maintainability and efficiency.
+![WebAPI Demo](https://media.giphy.com/media/3o7TKP9lnV3J9q6CEk/giphy.gif)  
+
+#### 📌 Overview  
+**WebAPI_MAB** is a structured and scalable Web API project that leverages **.NET Core** and **Entity Framework** for seamless backend operations.  
+It follows industry best practices such as **Dependency Injection**, **Layered Architecture**, and **RESTful principles** to ensure maintainability and efficiency.
 
 ---
 
-## 📂 _Project Structure_  
+## 📂 Project Structure  
 ### 🔹 Controllers  
 - Defines API endpoints and maps requests to appropriate service methods.  
 - Ensures proper request handling and response formatting.  
 
-### 🔹 `Models` 
+### 🔹 Models  
 - Represents the structure of data entities.  
 - Utilizes data annotations for validation and integrity.  
 
