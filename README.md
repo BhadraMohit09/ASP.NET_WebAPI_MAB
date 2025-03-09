@@ -9,7 +9,7 @@
 
 ---
 
-## 📂 Project Structure  
+## 📂 `Project Structure`  
 ### 🔹 Controllers  
 - Defines API endpoints and maps requests to appropriate service methods.  
 - Ensures proper request handling and response formatting.  
