@@ -1,6 +1,6 @@
 # WebAPI_MAB  
 
-![.NET](https://img.shields.io/badge/.NET-Core-blueviolet?style=for-the-badge&logo=dotnet)  
+![.NET](https://img.shields.io/badge/ASP.NET-Core-blueviolet?style=for-the-badge&logo=dotnet)  
 ![Status](https://img.shields.io/badge/Status-Active-red?style=for-the-badge)  
 ![Contributions](https://img.shields.io/badge/Contributions-Welcome-purple?style=for-the-badge)  
 
