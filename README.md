@@ -4,7 +4,7 @@
 ![Status](https://img.shields.io/badge/Status-Complete-red?style=for-the-badge)  
 ![Contributions](https://img.shields.io/badge/Contributions-Welcome-purple?style=for-the-badge)  
 
-![API Workflow](https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif)  
+![Developer Working](https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif)  
 
 #### 📌 Overview  
 **WebAPI_MAB** is a structured and scalable Web API project that leverages **.NET Core** and **Entity Framework** for seamless backend operations.  
