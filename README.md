@@ -1,4 +1,4 @@
-#### _WebAPI_MAB_  
+#### WebAPI_MAB 
 
 ![.NET](https://img.shields.io/badge/ASP.NET-Core-blueviolet?style=for-the-badge&logo=dotnet)  
 ![Status](https://img.shields.io/badge/Status-Complete-red?style=for-the-badge)  
@@ -12,7 +12,7 @@ It follows industry best practices such as **Dependency Injection**, **Layered A
 
 ---
 
-## 📂 Project Structure  
+#### 📂 Project Structure  
 ### 🔹 Controllers  
 - Defines API endpoints and maps requests to appropriate service methods.  
 - Ensures proper request handling and response formatting.  
