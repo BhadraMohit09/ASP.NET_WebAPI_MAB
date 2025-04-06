@@ -17,24 +17,24 @@ It follows industry best practices such as **Dependency Injection**, **Layered A
 - Defines API endpoints and maps requests to appropriate service methods.  
 - Ensures proper request handling and response formatting.  
 
-### 🔹 Models  
+#### 🔹 Models  
 - Represents the structure of data entities.  
 - Utilizes data annotations for validation and integrity.  
 
-### 🔹 Data Layer  
+#### 🔹 Data Layer  
 - Uses **Entity Framework Core** for database interaction.  
 - Implements **Code-First Approach** for schema management.  
 
-### 🔹 Dependency Injection  
+#### 🔹 Dependency Injection  
 - Ensures modular and testable architecture.  
 - Manages service lifetimes efficiently (Scoped, Singleton, Transient).  
 
-### 🔹 Middleware  
+#### 🔹 Middleware  
 - Handles authentication, authorization, logging, and exception handling.  
 
 ---
 
-## 🚀 Technologies Used  
+#### 🚀 Technologies Used  
 - **.NET Core** (Web API)  
 - **Entity Framework Core**  
 - **SQL Server / MySQL**  
@@ -43,7 +43,7 @@ It follows industry best practices such as **Dependency Injection**, **Layered A
 
 ---
 
-## 📢 Contributing  
+#### 📢 Contributing  
 Contributions are welcome! Feel free to submit issues, feature requests, or pull requests to enhance this project.  
 
 ---
