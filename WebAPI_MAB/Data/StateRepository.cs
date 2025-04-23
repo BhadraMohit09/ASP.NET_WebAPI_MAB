@@ -79,7 +79,7 @@ namespace WebAPI_MAB.Data
         }
         #endregion
 
-        #region DeleteData
+        #region Delete Data
         public bool Delete(int stateID)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -99,7 +99,7 @@ namespace WebAPI_MAB.Data
         }
         #endregion
 
-        #region InsertState
+        #region Insert State Data
         public bool Insert(StateModel state)
         {
             using (SqlConnection con = new SqlConnection(_connectionString))
@@ -123,7 +123,7 @@ namespace WebAPI_MAB.Data
         }
         #endregion
 
-        #region UpdateState
+        #region Update State Data
         public bool Update(StateModel state)
 
         {
